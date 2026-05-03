@@ -1,1 +1,24 @@
-
+{
+  "name": "Firefox Browser - Amir Mahdi Mohammadzadeh",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "root",
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "🦊 Firefox Browser (noVNC)",
+      "onAutoForward": "openBrowser",
+      "protocol": "http"
+    }
+  },
+  "postCreateCommand": "chmod +x /workspace/start-browser.sh && bash /workspace/start-browser.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
